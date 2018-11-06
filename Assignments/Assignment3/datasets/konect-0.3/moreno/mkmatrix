@@ -1,0 +1,9 @@
+#!/bin/bash
+#skip all lines until a line contains only 0 and 1 or any number if -a is given.
+#print all lines as long the pattern above holds true
+
+end='1'
+op=''
+[ "$1" == "-a" ] && end='-9' && op='+'
+
+sed -n -re '/^([0'$end']'$op'|\s+)+$/p'

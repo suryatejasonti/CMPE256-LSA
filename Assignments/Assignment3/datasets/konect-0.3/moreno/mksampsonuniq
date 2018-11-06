@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# STDIN
+#	Sorted list
+#
+
+flag=N
+ofrom=N
+
+while read -r line
+do
+	nfrom="$(echo "$line" | cut -d' ' -f1)"
+	nto="$(echo "$line" | cut -d' ' -f2)"
+	val="$(echo "$line" | cut -d' ' -f3)"
+	if [[ "$nfrom" != "$ofrom" || "$nto" != "$oto" ]] ; then
+		[ "$ofrom" != "N" ] && echo "$ofrom $oto $flag"
+		ofrom="$nfrom"
+		oto="$nto"
+		flag="$val"
+	else
+		if [ "$flag" != "0" ] ; then
+			[ "$flag" != "$val" ] && flag=0
+		fi
+	fi
+done
