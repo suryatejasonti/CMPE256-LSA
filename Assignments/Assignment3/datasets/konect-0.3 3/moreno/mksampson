@@ -1,0 +1,22 @@
+#! /bin/bash
+
+MATRIX="$(./mkmatrix -a <sampson.dat)"
+
+op="-"
+
+for i in {2..9}
+do
+	let start=1+$i*18
+	if [ "$op" == "-" ]; then
+		op='+'
+	else
+		op='-'
+	fi
+	PART="$(echo "$MATRIX" | tail -n+"$start" | head -n18 | sed -e "s/\([1-9]\)/"$op"\1/g")"
+ 
+	echo "$PART" | 
+	./mkmatrixtolines -a | 
+	sed -e 's/^\([0-9]\{1,\} [0-9]\{1,\} [-+]\)[0-9]\{1,\}$/\1'1'/'
+done  | 
+sort -n -k1 -k2 | 
+./mksampsonuniq

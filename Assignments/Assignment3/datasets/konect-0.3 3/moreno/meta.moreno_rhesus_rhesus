@@ -1,0 +1,10 @@
+category: Animal 
+code: MR
+name: Rhesus
+description: Monkey–monkey grooming
+entity-names: monkey
+extr: moreno
+url: http://moreno.ss.uci.edu/data.html#rhesus
+long-description: This directed network contains observed grooming episodes between free ranging rhesus monkeys in Cayo Santiago during a two month period in 1963. A node represents a monkey and an edge shows that the left monkey groomed the right monkey. The edge values indicate how often this behaviour was observed.
+relationship-names: grooming
+cite: konect:sade
